@@ -1,7 +1,8 @@
 ///// Задание 1 /////
 
 function isPalindrome(str) {
-    return str === str.split('').reverse().join('');
+    const normalizedStr = str.toLowerCase().replace(/\s/g, '');
+    return normalizedStr === normalizedStr.split('').reverse().join('');
 }
 
 console.log(isPalindrome("madam")); // true
@@ -10,8 +11,9 @@ console.log(isPalindrome("hello")); // false
 ///// Задание 2 /////
 
 function findShortestWord(sentence) {
-    return sentence.split(' ').reduce((shortest, word) => 
-        word.length < shortest.length ? word : shortest, sentence);
+const words = sentence.split(' ');
+return words.reduce((shortest, word) =>
+word.length < shortest.length ? word : shortest, words[0]);
 }
 
 console.log(findShortestWord("The quick brown fox jumps")); // "The"
